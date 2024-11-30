@@ -15,3 +15,17 @@ export type RootStackParamList = {
 	Profile: undefined;
 	Details: { id: number };
 };
+
+export interface User {
+	id: number;
+	nome: string;
+	email: string;
+	senha: string;
+	createAt: string;
+	updateAt: string;
+}
+
+export interface Credentials {
+	token: string;
+	user: User;
+}

@@ -70,8 +70,10 @@ export function Auth() {
 }
 
 export function Route() {
-	const { user } = useContext(AuthContext);
+	const { credentials } = useContext(AuthContext);
 	return (
-		<NavigationContainer>{user.token ? <App /> : <Auth />}</NavigationContainer>
+		<NavigationContainer>
+			{credentials.token ? <App /> : <Auth />}
+		</NavigationContainer>
 	);
 }
