@@ -11,19 +11,19 @@ export default function List() {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		const fetchVagas = async () => {
-			try {
-				const response = await api.get('/vagas');
-				setVagas(response.data);
-			} catch (error) {
-				console.log(error);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
 		fetchVagas();
 	}, []);
+
+	async function fetchVagas() {
+		try {
+			const response = await api.get('vagas');
+			setVagas(response.data.jobs);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsLoading(false);
+		}
+	}
 
 	return (
 		<Wrapper>

@@ -1,5 +1,5 @@
 import React, { useState, createContext, ReactNode } from 'react';
-import api from '../services/api';
+import api, { AUTH_KEY } from '../services/api';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -33,9 +33,9 @@ function AuthProvider({ children }: AuthProviderProps) {
 		senha: '',
 		token: ''
 	});
-	const AUTH_KEY = '@Auth';
 
 	async function login({ email, senha }: { email: string; senha: string }) {
+		console.log('Login: ', email, senha);
 		try {
 			const response = await api.post('usuarios/login', {
 				email: email,
@@ -47,15 +47,30 @@ function AuthProvider({ children }: AuthProviderProps) {
 				senha: senha,
 				token: response.data.token
 			});
-			await AsyncStorage.setItem(AUTH_KEY, JSON.stringify(user));
+
+			await AsyncStorage.setItem(
+				AUTH_KEY,
+				JSON.stringify({
+					email: email,
+					senha: senha,
+					token: response.data.token
+				})
+			);
+
+			await setToken(response.data.token);
 		} catch (error) {
 			console.log('Login falhou.');
 		}
 	}
 
+	async function setToken(token: string) {
+		api.defaults.headers.common.Authorization = `Bearer ${token}`;
+	}
+
 	function logout() {
 		setUser({ email: '', senha: '', token: '' });
 		AsyncStorage.removeItem(AUTH_KEY);
+		api.defaults.headers.common.Authorization = null;
 	}
 
 	return (

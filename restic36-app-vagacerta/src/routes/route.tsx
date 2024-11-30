@@ -70,8 +70,7 @@ export function Auth() {
 }
 
 export function Route() {
-	const { user, logout } = useContext(AuthContext);
-	console.log(user);
+	const { user } = useContext(AuthContext);
 	return (
 		<NavigationContainer>{user.token ? <App /> : <Auth />}</NavigationContainer>
 	);

@@ -43,16 +43,16 @@ async function update(
 	{ titulo, descricao, dataCadastro, telefone, status, empresa }
 ) {
 	try {
-		const vaga = await vaga.findByPk(id);
-		if (vaga) {
-			vaga.titulo = titulo;
-			vaga.descricao = descricao;
-			vaga.dataCadastro = dataCadastro;
-			vaga.telefone = telefone;
-			vaga.status = status;
-			vaga.empresa = empresa;
-			await vaga.save();
-			return vaga;
+		const job = await Vaga.findByPk(id);
+		if (job) {
+			job.titulo = titulo;
+			job.descricao = descricao;
+			job.dataCadastro = dataCadastro;
+			job.telefone = telefone;
+			job.status = status;
+			job.empresa = empresa;
+			await job.save();
+			return job;
 		}
 		return null;
 	} catch (error) {

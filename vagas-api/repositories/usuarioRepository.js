@@ -13,7 +13,6 @@ async function findByEmail(email) {
 }
 
 async function create({ nome, email, senha }) {
-	console.log(nome, email, senha);
 	return await Usuario.create({ nome, email, senha });
 }
 

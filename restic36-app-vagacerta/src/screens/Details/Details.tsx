@@ -19,15 +19,16 @@ import { Button } from '../../components/Button';
 import { VagaProps } from '../../utils/Types';
 
 export default function Details({ route, navigation }) {
-	const [id, setId] = useState(route.params.id);
+	const id = route.params.id;
 	const [vaga, setVaga] = useState<VagaProps>(null);
 
 	const fetchVaga = async () => {
 		try {
-			const response = await api.get(`/vagas/${id}`);
-			const data = response.data;
+			const response = await api.get(`vagas/${id}`);
+			const data = response.data.job;
 			setVaga({
 				id: data.id,
+				status: data.status,
 				title: data.titulo,
 				date: data.dataCadastro,
 				description: data.descricao,
@@ -61,12 +62,13 @@ export default function Details({ route, navigation }) {
 						<Title>{vaga.title}</Title>
 						<Description>{vaga.description}</Description>
 					</ContentContainer>
-
-					<Button
-						title="Entrar em contato"
-						noSpacing={true}
-						variant="primary"
-					/>
+					{vaga.status === 'Aberta' && (
+						<Button
+							title="Entrar em contato"
+							noSpacing={true}
+							variant="primary"
+						/>
+					)}
 				</Container>
 			) : (
 				<Title>Vaga não encontrada.</Title>
