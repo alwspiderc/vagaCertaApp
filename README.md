@@ -2,7 +2,7 @@
 
 **Descrição:**  
 
-VagaCerta é um aplicativo mobile desenvolvido com React Native que conecta candidatos a oportunidades de emprego, facilitando a busca, contato e gestão de informações de usuário. Este projeto inclui tanto o aplicativo quanto a API de suporte para gerenciar vagas e usuários.
+VagaCerta é um aplicativo mobile desenvolvido com React Native que conecta candidatos a oportunidades de emprego, facilitando a busca, contato e gestão de informações de usuário. Este projeto inclui tanto o aplicativo quanto a API de suporte para gerenciar vagas e usuários. que integra com a API RESTful desenvolvida nas aulas anteriores
 
 
 ## 📝 Índice
@@ -18,7 +18,7 @@ VagaCerta é um aplicativo mobile desenvolvido com React Native que conecta cand
 
 ## Sobre o Projeto
 
-O VagaCerta foi desenvolvido como atividade prática no curso de Desenvolvimento de Software (Trilha Mobile) no Restic36, para ajudar usuários a encontrar vagas de emprego abertas, permitindo acesso aos detalhes da vaga, contato com os responsáveis e edição de informações de usuário. Apenas usuários autenticados podem acessar o conteúdo. A comunicação com a API de vagas é realizada por meio de requisições HTTP utilizando a biblioteca Axios.
+O VagaCerta foi desenvolvido como atividade prática no curso de Desenvolvimento de Software (Trilha Mobile) no Restic36, para ajudar usuários a encontrar vagas de emprego abertas, permitindo acesso aos detalhes da vaga, contato com os responsáveis e edição de informações de usuário. Apenas usuários autenticados podem acessar o conteúdo. A comunicação com a API RESTful de vagas (desenvolvida nas aulas anteriores) é realizada por meio de requisições HTTP utilizando a biblioteca Axios.
 
 ## Tecnologias Utilizadas
 
