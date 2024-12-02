@@ -1,4 +1,4 @@
-import React, { useState, createContext, ReactNode } from 'react';
+import React, { useState, createContext, ReactNode, useEffect } from 'react';
 import api, { AUTH_KEY } from '../services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Credentials } from '../utils/Types';
@@ -57,8 +57,8 @@ function AuthProvider({ children }: AuthProviderProps) {
 			await AsyncStorage.setItem(
 				AUTH_KEY,
 				JSON.stringify({
-					email: email,
-					senha: senha,
+					email: response.data.user.email,
+					senha: response.data.user.senha,
 					token: response.data.token
 				})
 			);
@@ -72,6 +72,32 @@ function AuthProvider({ children }: AuthProviderProps) {
 	async function setToken(token: string) {
 		api.defaults.headers.common.Authorization = `Bearer ${token}`;
 	}
+
+	useEffect(() => {
+		async function loadStorageData() {
+			const storage = await AsyncStorage.getItem(AUTH_KEY);
+
+			if (storage) {
+				const { email, senha, token } = JSON.parse(storage);
+
+				setToken(token);
+
+				setCredentials({
+					token: token,
+					user: {
+						id: 0,
+						nome: '',
+						email: email,
+						senha: senha,
+						createAt: '',
+						updateAt: ''
+					}
+				});
+			}
+		}
+
+		loadStorageData();
+	}, []);
 
 	function logout() {
 		setCredentials({
