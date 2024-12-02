@@ -1,9 +1,8 @@
 # VagaCerta
 
-**Descrição:**  
+**Descrição:**
 
 VagaCerta é um aplicativo mobile desenvolvido com React Native que conecta candidatos a oportunidades de emprego, facilitando a busca, contato e gestão de informações de usuário. Este projeto inclui tanto o aplicativo quanto a API de suporte para gerenciar vagas e usuários. que integra com a API RESTful desenvolvida nas aulas anteriores
-
 
 ## 📝 Índice
 
@@ -23,12 +22,14 @@ O VagaCerta foi desenvolvido como atividade prática no curso de Desenvolvimento
 ## Tecnologias Utilizadas
 
 **Frontend (App):**
+
 - [React Native](https://reactnative.dev/)
 - Context API
 - Async Storage para persistência de dados
 - Axios para fazer requisições à API, como obter as vagas disponíveis e interagir com o servidor
 
 **Backend (API):**
+
 - [Node.js](https://nodejs.org/)
 - Express
 - Sequelize
@@ -41,7 +42,6 @@ O VagaCerta foi desenvolvido como atividade prática no curso de Desenvolvimento
 - Edição de informações do usuário.
 - Logout.
 - Conexão com a API de vagas utilizando Axios.
-
 
 ## Estrutura do Projeto
 
@@ -66,6 +66,7 @@ restic36-app-vagacerta/
 ```
 
 ### API (`vagas-api`)
+
 ```
 vagas-api/
 ├── config/
@@ -85,46 +86,44 @@ vagas-api/
 ├── server.js
 ```
 
-
 ## Pré-requisitos
 
 - **Node.js** instalado
 - **npm** ou **yarn** para gerenciar pacotes
 - Emulador ou dispositivo físico para executar o aplicativo
 
-## Instalação
+## 🚀 Instalação
 
-1. Clone o repositório:
-   ```
-   git clone https://github.com/seu-usuario/restic36-app-vagacerta.git
-   cd restic36-app-vagacerta
-   ```
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/restic36-app-vagacerta.git
 
-2. Instale as dependências do aplicativo:
-```
+## Front
+
+# Acesse o diretório do projeto
+cd restic36-app-vagacerta
+
+# Instale o Expo CLI globalmente
+npm install -g expo-cli
+
+# Instale as dependências do projeto
 npm install
-# ou
-yarn install
-```
 
-3. Configure a API:
-```
+# Inicie o projeto
+npx expo start
+
+
+## Back
+
+# Acesse o diretório do projeto
 cd vagas-api
-npm install
-# ou
-yarn install
-```
 
-4. Inicie a API:
-```
-npm start
-```
+# Instale as dependências do projeto
+yarn
 
-5. Inicie o aplicativo:
-```
-npx react-native run-android
-# ou
-npx react-native run-ios
+# Inicie o projeto
+yarn start
+
 ```
 
 ## Como Usar
@@ -136,5 +135,6 @@ npx react-native run-ios
 5. Faça logout para sair do aplicativo.
 
 ## Contribuição
+
 Atividade desenvolvida pelas alunas Elane de Alencar Arrais Machado e Ester Costa de Souza.
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
