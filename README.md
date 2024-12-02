@@ -31,6 +31,7 @@ O VagaCerta foi desenvolvido como atividade prática no curso de Desenvolvimento
 **Backend (API):**
 - [Node.js](https://nodejs.org/)
 - Express
+- Sequelize
 
 ## Funcionalidades
 
