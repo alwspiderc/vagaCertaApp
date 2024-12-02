@@ -99,6 +99,7 @@ export default function Profile({ navigation }) {
 						placeholder="digite seu e-mail"
 						value={profile.email}
 						onChangeText={(value) => setProfile({ ...profile, email: value })}
+						autoCapitalize="none"
 					/>
 					<Input
 						label="Senha"
