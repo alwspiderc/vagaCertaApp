@@ -43,7 +43,6 @@ function AuthProvider({ children }: AuthProviderProps) {
 	});
 
 	async function login({ email, senha }: { email: string; senha: string }) {
-		console.log('Login: ', email, senha);
 		try {
 			const response = await api.post('usuarios/login', {
 				email: email,
