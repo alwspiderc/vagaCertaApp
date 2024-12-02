@@ -16,9 +16,10 @@ import { Button } from '../../components/Button';
 import api from '../../services/api';
 import { AuthContext } from '../../contexts/Auth';
 import { User } from '../../utils/Types';
+import { View } from 'react-native';
 
 export default function Profile({ navigation }) {
-	const { credentials } = useContext(AuthContext);
+	const { credentials, logout } = useContext(AuthContext);
 	const [senha, setSenha] = useState('');
 	const [profile, setProfile] = useState<User>({
 		id: 0,
@@ -51,6 +52,10 @@ export default function Profile({ navigation }) {
 		}
 	}
 
+	function handleLogout() {
+		logout();
+	}
+
 	useEffect(() => {
 		fetchProfile();
 	}, []);
@@ -66,7 +71,21 @@ export default function Profile({ navigation }) {
 				</HeaderButtonContainer>
 				<Logo />
 			</Header>
-
+			<View
+				style={{
+					width: '100%',
+					alignItems: 'flex-end',
+					paddingRight: 10
+				}}
+			>
+				<Button
+					style={{ width: 60 }}
+					title="Sair"
+					noSpacing={true}
+					variant="secondary"
+					onPress={handleLogout}
+				/>
+			</View>
 			<Container>
 				<ContentContainer>
 					<Input
