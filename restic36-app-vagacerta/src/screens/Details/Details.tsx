@@ -63,7 +63,7 @@ export default function Details({ route, navigation }) {
 						<Title>{vaga.title}</Title>
 						<Description>{vaga.description}</Description>
 					</ContentContainer>
-					{vaga.status === 'Aberta' && (
+					{vaga.status.toLowerCase() === 'aberta'.toLowerCase() && (
 						<Button
 							title="Entrar em contato"
 							noSpacing={true}
